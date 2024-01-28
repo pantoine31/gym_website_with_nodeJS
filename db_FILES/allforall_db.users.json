@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "65aa454b1d95b0a821d39e83"
+  },
+  "password": "123",
+  "email": "admin@1",
+  "role": "admin",
+  "cancellations": 0
+},
+{
+  "_id": {
+    "$oid": "65aaedb694a4dc2c1c3ccc7e"
+  },
+  "name": "antonis",
+  "password": "123",
+  "email": "user@1",
+  "phone": "69",
+  "address": "d",
+  "country": "gr",
+  "username": "antonhspap",
+  "lastname": "pap",
+  "cancellations": 0,
+  "status": "rejected",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b19cbafd92c683cf6cb35d"
+  },
+  "name": "Antonis Papakonstantinou",
+  "password": "123",
+  "email": "antonhspap@icloud.com",
+  "phone": "69",
+  "address": "address2",
+  "country": "CountryChange",
+  "username": "antonhspapCHANGE",
+  "lastname": "Papakonstantinou",
+  "cancellations": 0,
+  "status": "accepted",
+  "role": "user",
+  "__v": 0
+}]

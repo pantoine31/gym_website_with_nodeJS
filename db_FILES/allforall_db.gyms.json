@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "65b19e4afd92c683cf6cb36d"
+  },
+  "ex": "treximo",
+  "trainer": "george",
+  "category": "cardio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b22a7a97ce01f809917c94"
+  },
+  "ex": "pagkos 200kg",
+  "trainer": "antonis",
+  "category": "weight",
+  "__v": 0
+}]

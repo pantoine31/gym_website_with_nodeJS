@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="mainpage_style.html">
+                    <!-- <img sic="icons/logo.png" id="logo"> -->
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/announcements">Announcements</a></li>
+                    <% if (login != true) { %>
+                    <li><a href="/signin">Sign-In</a></li>
+                    <li><a href="/signup">Sign-Up</a></li>
+                    <% } %>
+                    <% if (login == true) { %>
+                        <li><a href="/history">History</a></li>
+                        <li><a href="/logout">Sign-Out</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h2 style="text-align: center;">Booking History</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Exercise</th>
+                <th scope="col">Day</th>
+                <th scope="col">Time</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%bookslist.forEach(Book=> {%>
+                <%if (Book.user === email){%>
+                <tr>
+                    <th scope="row">
+                        <%= Book.ex %>
+                    </th>
+                    <td>
+                        <%= Book.day %>
+                    </td>
+                    <td>
+                        <%= Book.time %>
+                    </td>
+                    <td>
+                        <%= Book.status %>
+                    </td>
+                </tr>
+                <%}%>
+            <%})%>
+        </tbody>
+    </table>
+</body>
+
+<form style="text-align: center;" action="/cancelbooking" method="post">
+    <label for="service">Service:</label>
+    <select id="service" name="service">
+        <% gymlist.forEach(function(gym) { %>
+            <option value="<%= gym.ex %>">
+            <%= gym.ex %>
+        </option>
+        <% }); %>
+    </select>
+    
+    <label for="day">Day:</label>
+    <select id="day" name="day">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+    </select>
+
+
+    <label for="time">Time:</label>
+    <select id="time" name="time">
+        <% timeSlots.forEach(slot=> { %>
+            <option value="<%= slot.time %>">
+                <%= slot.time %>
+            </option>
+            <% }) %>
+    </select>
+
+    <button type="submit">Cancel</button>
+</form>
+
+</html>
+
+</html>

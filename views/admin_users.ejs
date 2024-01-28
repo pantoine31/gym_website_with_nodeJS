@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<% if (role == "admin") { %>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="mainpage_style.html">
+                    <!-- <img sic="icons/logo.png" id="logo"> -->
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/admin_announ">Publish Announcements</a></li>
+                    <li><a href="/admin_req">Register Requests</a></li>
+                    <li><a href="/admin_users">Users Managment</a></li> 
+                    <li><a href="/admin_trainning">Admin Trainning</a></li> 
+                    <li><a href="/admin_program">Managment Program</a></li> 
+                    <li><a href="/logout">Sign-Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h2 style="text-align: center;">Users Managment</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Country</th>
+                <th scope="col">Username</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Cancellations</th>
+                <th scope="col">Role</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%usersList.forEach(user=> {%>
+                <tr>
+                    <th scope="row">
+                        <%= user.email %>
+                    </th>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.phone %>
+                    </td>
+                    <td>
+                        <%= user.address %>
+                    </td>
+                    <td>
+                        <%= user.country %>
+                    </td>
+                    <td>
+                        <%= user.username %>
+                    </td>
+                    <td>
+                        <%= user.lastname %>
+                    </td>
+                    <td>
+                        <%= user.cancellations %>
+                    </td>
+                    <td>
+                        <%= user.role %>
+                    </td>
+                    <td>
+                        <%= user.status %>
+                    </td>
+                    <td>
+                        <form action="/delete_user" method="post">
+                            <input type="hidden" name="email" value="<%= user.email %>">
+                            <button type="submit" value="delete" name="delete" >Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                
+                <%})%>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Update User</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/update_users" method="POST">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Lastname</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone-number</label>
+                                <input type="text" class="form-control" id="phone" name="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" id="country" name="country" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cancellations">Cancellations</label>
+                                <input type="number" class="form-control" id="cancellations" name="cancellations" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <input type="text" class="form-control" id="role" name="role" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+</html>
+<%}%>

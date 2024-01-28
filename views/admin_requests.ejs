@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<% if (role == "admin") { %>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="mainpage_style.html">
+                    <!-- <img sic="icons/logo.png" id="logo"> -->
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/admin_announ">Publish Announcements</a></li>
+                    <li><a href="/admin_req">Register Requests</a></li>
+                    <li><a href="/admin_users">Users Managment</a></li> 
+                    <li><a href="/admin_trainning">Admin Trainning</a></li> 
+                    <li><a href="/admin_program">Managment Program</a></li> 
+                    <li><a href="/logout">Sign-Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h2 style="text-align: center;">Register Requests</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%usersList.forEach(user=> {%>
+
+               <% if (user.role != "admin") {%>
+                    
+               
+                <tr>
+                    <th scope="row">
+                        <%= user.email %>
+                    </th>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.phone %>
+                    </td>
+                    <td>
+                        <%= user.status %>
+                    </td>
+                    <td>
+                        <form action="/checking_req" method="post">
+                            <input type="hidden" name="email" value="<%= user.email %>">
+                            <button type="submit" value="decline" name="c" >Decline</button>
+                            <button type="submit" value="approve" name="c" >Accept</button>
+                        </form>
+                    </td>
+                </tr>
+                <%}%>
+                <%})%>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
+
+</html>
+<%}%>

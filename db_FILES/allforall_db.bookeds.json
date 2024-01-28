@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "65aaf48b0de52c14bc5f3589"
+  },
+  "day": "Monday",
+  "time": "9:00",
+  "user": "user@1",
+  "status": "ongoing",
+  "__v": 0
+}]

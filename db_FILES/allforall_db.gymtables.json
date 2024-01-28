@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "65b19e6afd92c683cf6cb377"
+  },
+  "ex": "treximo",
+  "time": "9:00",
+  "day": "Friday",
+  "user": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b23c5e97ce01f809917caa"
+  },
+  "ex": "pagkos 200kg",
+  "time": "9:00",
+  "day": "Wednesday",
+  "user": "",
+  "__v": 0
+}]
